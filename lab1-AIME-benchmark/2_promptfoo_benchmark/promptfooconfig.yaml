@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+
+# Learn more about building a configuration: https://promptfoo.dev/docs/configuration/guide
+
+description: "AIME 2025 benchmark"
+
+prompts:
+  - "{{problem}}"
+  
+
+providers:
+  # - id: litellm:claude-3.7-sonnet
+  #   config:
+  #     max_tokens: 8000
+  #     reasoning_effort: 'medium'
+  #     showThinking: true
+  - litellm:claude-3.5-sonnet
+  - id: litellm:deepseek-r1
+    config:
+      max_tokens: 16000
+      showThinking: false
+  - litellm:nova-lite
+  - id: litellm:nova-pro
+    config:
+      max_tokens: 8000
+# - bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0
+# - bedrock:amazon.nova-lite-v1:0
+
+defaultTest:
+  options:
+    provider: 
+      id: litellm:claude-3.7-sonnet
+
+  assert:
+    - type: factuality
+      value: "{{answer}}"
+      metric: correctness
+
+tests:
+  - huggingface://datasets/shanchen/aime_2025_multilingual?split=en&config=default&limit=30
