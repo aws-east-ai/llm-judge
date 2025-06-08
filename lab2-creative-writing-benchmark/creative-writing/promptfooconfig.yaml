@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+
+# Learn more about building a configuration: https://promptfoo.dev/docs/configuration/guide
+
+description: "Creative writing benchmark"
+
+prompts:
+  - |-
+    Create a 400-500 word story that combines all elements below. It must make the most sense possible and every single element must be used. Each element should tightly fit into the story's logic, tone, and momentum. Each element should shape the narrative arc, enrich the setting, deepen character motives, and support the theme. If another element in the category was used, the story would be less cohesive or compelling. Among other factors, the story will be graded on Story Integration, Character Development & Motivation, Plot Structure & Coherence, World & Atmosphere, Storytelling Impact & Craft, Authenticity & Originality. Make sure you make the best story possible.
+
+    Enclose the whole story in <story></story> tags in your output. After each sentence put the precise total number of words that you wrote for this story so far in <words></words> tag, so so you can keep count while writing. We do not need any other comments besides the story itself and these counts after each sentence.
+
+    Character: {{character}}
+
+    Object: {{object}}
+
+    Core Concept: {{core_concept}}
+
+    Attribute: {{attribute}}
+
+    Action: {{action}}
+
+    Method: {{method}}
+
+    Setting: {{setting}}
+
+    Timeframe: {{timeframe}}
+
+    Motivation: {{motivation}}
+
+    Tone: {{tone}}
+  
+
+providers:
+  - litellm:claude-3.5-haiku
+  - litellm:claude-3.5-sonnet
+  - litellm:claude-3.7-sonnet
+  - litellm:nova-lite
+  - litellm:nova-pro
+  # - litellm:gemini-flash
+  - id: litellm:deepseek-r1
+    config:
+      max_tokens: 8000
+      showThinking: false
+
+  
+
+defaultTest:
+  assert:
+    - type: python
+      value: file://custom_llm_eval.py
+      metric: creative_score
+
+
+tests:
+  - file://test-vars.py:generate_tests
