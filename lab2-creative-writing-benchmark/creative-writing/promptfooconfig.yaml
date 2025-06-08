@@ -54,3 +54,7 @@ defaultTest:
 
 tests:
   - file://test-vars.py:generate_tests
+
+
+evaluateOptions:
+  delay: 20000

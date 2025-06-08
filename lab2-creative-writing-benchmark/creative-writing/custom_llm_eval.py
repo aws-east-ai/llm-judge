@@ -131,7 +131,7 @@ def llm_eval(story, context):
     """
     
     response = model_call(
-        model_id="openai/claude-3.5-sonnet",
+        model_id="openai/claude-3.7-sonnet",
         prompt=prompt
     )
     
