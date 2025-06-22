@@ -1,4 +1,0 @@
-2025-06-08T04:08:17.831Z [ERROR]: API call error: Error: Request failed after 4 retries: TypeError: fetch failed (Cause: Error: connect ECONNREFUSED 0.0.0.0:4000)
-2025-06-08T04:08:17.991Z [ERROR]: API call error: Error: Request failed after 4 retries: TypeError: fetch failed (Cause: Error: connect ECONNREFUSED 0.0.0.0:4000)
-2025-06-08T04:08:18.175Z [ERROR]: API call error: Error: Request failed after 4 retries: TypeError: fetch failed (Cause: Error: connect ECONNREFUSED 0.0.0.0:4000)
-2025-06-08T04:08:22.432Z [ERROR]: API call error: Error: Request failed after 4 retries: TypeError: fetch failed (Cause: Error: connect ECONNREFUSED 0.0.0.0:4000)

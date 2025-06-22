@@ -131,7 +131,7 @@ def llm_eval(story, context):
     """
     
     response = model_call(
-        model_id="openai/claude-3.7-sonnet",
+        model_id="openai/claude-3.7-sonnet", # bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0
         prompt=prompt
     )
     

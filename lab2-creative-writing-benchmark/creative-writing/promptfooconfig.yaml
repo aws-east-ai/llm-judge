@@ -32,18 +32,21 @@ prompts:
   
 
 providers:
+  # - bedrock:us.anthropic.claude-sonnet-4-20250514-v1:0
+  # - bedrock:us.anthropic.claude-3-5-sonnet-20241022-v2:0
+  # - bedrock:amazon.nova-lite-v1:0
+  # - bedrock:amazon.nova-pro-v1:0
   - litellm:claude-3.5-haiku
   - litellm:claude-3.5-sonnet
   - litellm:claude-3.7-sonnet
   - litellm:nova-lite
   - litellm:nova-pro
   # - litellm:gemini-flash
-  - id: litellm:deepseek-r1
-    config:
-      max_tokens: 8000
-      showThinking: false
+  # - id: litellm:deepseek-r1
+  #   config:
+  #     max_tokens: 8000
+  #     showThinking: false
 
-  
 
 defaultTest:
   assert:
@@ -52,6 +55,7 @@ defaultTest:
       metric: creative_score
 
 
+# modify num_tests to setup the number of tests to run
 tests:
   - file://test-vars.py:generate_tests
 
