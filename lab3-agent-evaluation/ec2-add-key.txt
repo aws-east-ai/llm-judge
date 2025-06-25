@@ -1,0 +1,12 @@
+How to add key to EC2
+
+1. create key pair and download the private key as abc.pem
+2. ssh-keygen -y -f abc.pem
+3. in terminal edit .ssh/authorized_keys
+4. paste the step 2 content into step 3 file
+
+test login:
+ssh -i abc.pem participant@44.251.115.201
+
+port forwarding:
+ssh -i abc.pem -N -L 3000:44.251.115.201:3000 participant@44.251.115.201
