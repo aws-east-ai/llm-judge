@@ -1,7 +1,7 @@
 import pandas as pd
 
 def generate_tests():
-    num_tests = 20
+    num_tests = 10
 
     f_action=open('data/action.txt')
     f_attribute=open('data/attribute.txt')

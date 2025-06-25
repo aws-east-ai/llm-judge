@@ -14,22 +14,26 @@ providers:
   #     max_tokens: 8000
   #     reasoning_effort: 'medium'
   #     showThinking: true
-  - litellm:claude-3.5-sonnet
-  - id: litellm:deepseek-r1
-    config:
-      max_tokens: 16000
-      showThinking: false
-  - litellm:nova-lite
-  - id: litellm:nova-pro
-    config:
-      max_tokens: 8000
-# - bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0
-# - bedrock:amazon.nova-lite-v1:0
+  # - litellm:claude-3.5-sonnet
+  # - id: litellm:deepseek-r1
+  #   config:
+  #     max_tokens: 16000
+  #     showThinking: false
+  # - litellm:nova-lite
+  # - id: litellm:nova-pro
+  #   config:
+  #     max_tokens: 8000
+  # - bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0
+  - bedrock:amazon.nova-lite-v1:0
 
 defaultTest:
   options:
     provider: 
-      id: litellm:claude-3.7-sonnet
+      # id: bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0
+      id: bedrock:amazon.nova-pro-v1:0
+      # id: bedrock:us.anthropic.claude-sonnet-4-20250514-v1:0
+      # config:
+      # region: 'us-west-2'
 
   assert:
     - type: factuality
@@ -37,4 +41,6 @@ defaultTest:
       metric: correctness
 
 tests:
-  - huggingface://datasets/shanchen/aime_2025_multilingual?split=en&config=default&limit=30
+  # - huggingface://datasets/shanchen/aime_2025_multilingual?split=en&config=default&limit=30
+  - huggingface://datasets/shanchen/aime_2025_multilingual?split=en&config=default&limit=2
+

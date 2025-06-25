@@ -113,7 +113,7 @@ def process_database_and_upload(database_folder, bucket_name):
 
 def set_athena_result_location(result_bucket):
     try:
-        athena_client = boto3.client('athena')
+        athena_client = boto3.client('athena', region_name='us-west-2')
         s3_output_location = f's3://{result_bucket}/athena-results/'
         
         response = athena_client.update_work_group(
@@ -201,7 +201,7 @@ def generate_and_create_table(results_bucket_name, parquet_bucket_name, database
         print(f"\nGenerating table: {database_name}.{table_name}")
         
         # Execute DDL
-        athena_client = boto3.client('athena')
+        athena_client = boto3.client('athena', region_name='us-west-2')
         
         # Create table
         response = athena_client.start_query_execution(
@@ -243,7 +243,7 @@ def create_all_databases_and_tables(results_bucket_name, parquet_bucket_name):
             print("No databases/tables found in S3")
             return False
             
-        athena_client = boto3.client('athena')
+        athena_client = boto3.client('athena', region_name='us-west-2')
         
         # Process each database
         for database_name, tables in database_tables.items():

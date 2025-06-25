@@ -4,9 +4,6 @@ import re
 from litellm import completion
 import os
 
-os.environ["OPENAI_API_KEY"] = "sk-12341234"
-os.environ["OPENAI_BASE_URL"] = "http://localhost:4000" 
-
 def model_call(model_id, prompt) -> str:
     response = completion(
         model=model_id,
@@ -131,7 +128,7 @@ def llm_eval(story, context):
     """
     
     response = model_call(
-        model_id="openai/claude-3.7-sonnet", # bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0
+        model_id="bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0",
         prompt=prompt
     )
     
