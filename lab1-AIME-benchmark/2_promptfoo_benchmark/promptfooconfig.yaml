@@ -23,17 +23,15 @@ providers:
   # - id: litellm:nova-pro
   #   config:
   #     max_tokens: 8000
-  # - bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0
+  - bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0
   - bedrock:amazon.nova-lite-v1:0
 
 defaultTest:
   options:
     provider: 
       # id: bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0
-      id: bedrock:amazon.nova-pro-v1:0
-      # id: bedrock:us.anthropic.claude-sonnet-4-20250514-v1:0
-      # config:
-      # region: 'us-west-2'
+      # id: bedrock:amazon.nova-pro-v1:0
+      id: bedrock:us.anthropic.claude-sonnet-4-20250514-v1:0
 
   assert:
     - type: factuality
