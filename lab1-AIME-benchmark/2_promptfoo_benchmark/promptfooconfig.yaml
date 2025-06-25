@@ -23,8 +23,8 @@ providers:
   # - id: litellm:nova-pro
   #   config:
   #     max_tokens: 8000
-  - bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0
-  - bedrock:amazon.nova-lite-v1:0
+  - bedrock:us.anthropic.claude-3-5-sonnet-20241022-v2:0
+  - bedrock:us.amazon.nova-lite-v1:0
 
 defaultTest:
   options:
